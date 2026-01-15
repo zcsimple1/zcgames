@@ -16,6 +16,8 @@ class ClickGame {
         this.retryButton = document.getElementById('retryButton');
         this.shareButton = document.getElementById('shareButton');
         this.shareCanvas = document.getElementById('shareCanvas');
+        this.qrImage = new Image();
+        this.qrImage.src = 'morning.jpg';
         
         this.roasts = [
             { min: 0, text: "手速堪比树懒！你是来度假的吗？" },
@@ -135,14 +137,14 @@ class ClickGame {
     generateShareImage() {
         const ctx = this.shareCanvas.getContext('2d');
         this.shareCanvas.width = 800;
-        this.shareCanvas.height = 600;
+        this.shareCanvas.height = 700;
         
-        const gradient = ctx.createLinearGradient(0, 0, 800, 600);
+        const gradient = ctx.createLinearGradient(0, 0, 800, 700);
         gradient.addColorStop(0, '#667eea');
         gradient.addColorStop(1, '#764ba2');
         
         ctx.fillStyle = gradient;
-        ctx.fillRect(0, 0, 800, 600);
+        ctx.fillRect(0, 0, 800, 700);
         
         ctx.fillStyle = 'white';
         ctx.font = 'bold 48px Arial';
@@ -164,7 +166,16 @@ class ClickGame {
         
         ctx.font = '18px Arial';
         ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
-        ctx.fillText('扫描二维码体验游戏', 400, 520);
+        ctx.fillText('扫码关注更多好玩游戏', 400, 460);
+        
+        try {
+            ctx.drawImage(this.qrImage, 300, 490, 200, 200);
+        } catch (err) {
+            console.log('QR Code image not loaded yet');
+            ctx.fillStyle = 'white';
+            ctx.font = '16px Arial';
+            ctx.fillText('[二维码]', 400, 600);
+        }
         
         const dataUrl = this.shareCanvas.toDataURL('image/png');
         
