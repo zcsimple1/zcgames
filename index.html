@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>点击狂魔：10秒挑战</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">点击狂魔：10秒挑战</h1>
+        
+        <div id="gameArea">
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="stat-label">得分</div>
+                    <div class="stat-value" id="score">0</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">时间</div>
+                    <div class="stat-value" id="timer">10.0</div>
+                </div>
+            </div>
+            
+            <button id="clickButton" class="click-button">
+                点击我！
+            </button>
+            
+            <button id="startButton" class="start-button">开始挑战</button>
+        </div>
+        
+        <div id="resultArea" class="result-area hidden">
+            <div class="result-box">
+                <h2>挑战结束！</h2>
+                <div class="final-score" id="finalScore">0</div>
+                <p class="roast" id="roastText"></p>
+                <div class="result-buttons">
+                    <button id="retryButton" class="retry-button">再来一次</button>
+                    <button id="shareButton" class="share-button">分享成绩</button>
+                </div>
+            </div>
+        </div>
+        
+        <canvas id="shareCanvas" class="hidden"></canvas>
+    </div>
+    
+    <script src="game.js"></script>
+</body>
+</html>
